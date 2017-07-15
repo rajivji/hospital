@@ -8,4 +8,4 @@
 unless User.find_by_email('superadmin@example.com')
 	User.create({email: "superadmin@example.com", password: "password", password_confirmation: "password"})
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') 
