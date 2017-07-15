@@ -31,7 +31,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+#devise for authentication
+gem 'devise'
+#postgres database
+gem 'pg'
 
+# Backend management
+gem 'activeadmin', github: 'activeadmin'
+
+#production server
+gem 'rails_12factor', group: :production
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -45,3 +54,4 @@ group :development do
   gem 'spring'
 end
 
+ruby "2.3.0"

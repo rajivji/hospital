@@ -1,0 +1,90 @@
+<% content_for :title do %>
+  <title>Login | Hospital User</title>
+<% end %>
+<% content_for :body_class, "login-page" %>
+        <div id="header" class="animated fadeInDown">
+            <div class="row">
+                <div class="navbar">
+                    <div class="container text-center">
+                        <a class="navbar-brand" href="dashboard.html">User.<span class="slogan">Login</span></a>
+                    </div>
+                </div>
+                <!-- /navbar -->
+            </div>
+            <!-- End .row -->
+        </div>
+        <!-- End #header -->
+        <!-- Start login container -->
+        <div class="container login-container">
+            <div class="login-panel panel panel-default plain animated bounceIn">
+                <!-- Start .panel -->
+                <div class="panel-body">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name),:html => {:class => 'form-horizontal mt0', :id =>'login-form',:role=>'form'}) do |f| %>
+                        <%= devise_error_messages! %>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <!-- col-md-12 start here -->
+                                <label for="">Email/Phone:</label>
+                            </div>
+                            <!-- col-md-12 end here -->
+                            <div class="col-lg-12">
+                                <div class="input-group input-icon">
+                                    <%= f.email_field :email, autofocus: true,placeholder: "Enter email  ...",class: "form-control",id: "username" %>
+                                    <span class="input-group-addon"><i class="icomoon-icon-user s16"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <!-- col-md-12 start here -->
+                                <label for="">Password:</label>
+                            </div>
+                            <!-- col-md-12 end here -->
+                            <div class="col-lg-12">
+                                <div class="input-group input-icon">
+                                    <%= f.password_field :password, autocomplete: "off",placeholder: "Your password",class: "form-control",id: "password" %>
+                                    <span class="input-group-addon"><i class="icomoon-icon-lock s16"></i></span> 
+                                </div>
+                                <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                                <!-- <span class="help-block text-right"><%= link_to "Forgot your password?", new_password_path(resource_name) %></span> -->
+                                <% end -%>
+                            </div>
+                        </div>
+                        <div class="form-group mb0">
+                          <% if devise_mapping.rememberable? -%>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                                <div class="checkbox-custom">
+                                    <%= f.check_box :remember_me,id: 'remember' %>
+                                    <label for="remember">Remember me ?</label>
+                                </div>
+                            </div>
+                            <% end -%>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4 mb25">
+                                <%= f.submit "Login",class: 'btn btn-default pull-right' %>
+                            </div>
+                        </div>
+                    <% end %>
+                    <!-- <div class="seperator">
+                        <strong>or</strong>
+                        <hr>
+                    </div>
+                    <div class="social-buttons text-center mt5 mb5">
+                        <a href="#" class="btn btn-primary btn-alt mr10">Sign in with <i class="fa fa-facebook s20 ml5 mr0"></i></a> 
+                        <a href="#" class="btn btn-danger btn-alt ml10">Sign in with <i class="fa fa-google-plus s20 ml5 mr0"></i></a> 
+                    </div> -->
+                </div>
+                <!-- <div class="panel-footer gray-lighter-bg">
+                    <h4 class="text-center"><strong>Don`t have an account ?</strong>
+                    </h4>
+                    <p class="text-center"><%= link_to "Create account", new_user_registration_path,class: 'btn btn-success' %>
+                    </p>
+                </div> -->
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- End login container -->
+        <div class="container">
+            <div class="footer">
+                <p class="text-center">&copy;2017 Copyright Hospital Management. All right reserved !!!</p>
+            </div>
+        </div>
