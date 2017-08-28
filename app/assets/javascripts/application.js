@@ -19,7 +19,7 @@
 // require sweet-alert2-rails
 //= require jquery_ujs
 // require turbolinks
-// require tinymce
+//= require tinymce
 //= require bootstrap
 //= require pace.min
 //= require jquery.validate

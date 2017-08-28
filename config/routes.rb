@@ -20,16 +20,8 @@ Rails.application.routes.draw do
   #   resources :products
 
   # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+    post 'home/create_patient'
+    # resources :home 
 
   # Example resource route with sub-resources:
   #   resources :products do

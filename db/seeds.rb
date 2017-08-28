@@ -8,4 +8,6 @@
 unless User.find_by_email('superadmin@example.com')
 	User.create({email: "superadmin@example.com", password: "password", password_confirmation: "password"})
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') 
+unless AdminUser.find_by_email('admin@example.com')
+	AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') 
+end
