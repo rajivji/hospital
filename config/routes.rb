@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   # Example resource route with options:
     post 'home/create_patient'
+    get 'home/view_patient/:id', to: 'home#view_patient', as: 'view_patient'
     # resources :home 
 
   # Example resource route with sub-resources:

@@ -52,50 +52,37 @@
 				</div>
 				<div class="page-header">
 				</div>
-				<%= form_for @patient,  :url => home_create_patient_path(@patient),:html => {:class => 'form-horizontal ', :id =>'validate',:role=>'form'} do |f| %>
 				<div class="form-group row">
-					<% if @patient.errors.any? %>
-					<div id="error_explanation">
-						<h2><%= pluralize(@member.errors.count, "error") %> prohibited this @patient from being saved:</h2>
-
-						<ul>
-							<% @patient.errors.full_messages.each do |message| %>
-							<li><%= message %></li>
-							<% end %>
-						</ul>
-					</div>
-					<% end %>
 					<div class="col-sm-3">
 						<label for="subject" class="col-lg-3 col-md-3 control-label">Name:</label>
 						<div class="col-lg-9 col-md-7">
-							<%= f.text_field :name, class: 'form-control required',placeholder: "Type name ..." %>
+							<%= @patient.name %>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<label for="subject" class="col-lg-3 col-md-3 control-label">Age:</label>
 						<div class="col-lg-9 col-md-7">
-							<%= f.text_field :age, class: 'form-control required',placeholder: "Type Age",:required => true,type: "number" %>
+							<%= @patient.age %>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<label for="subject" class="col-lg-3 col-md-3 control-label">Wt:</label>
 						<div class="col-lg-9 col-md-7">
-							<%= f.text_field :weignt, class: 'form-control required',placeholder: "Type Wt",:required => true,type: "number" %>
+							<%= @patient.weignt %>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<label for="subject" class="col-lg-3 col-md-3 control-label">Date:</label>
 						<div class="col-lg-9 col-md-7">
 							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-								<%= f.text_field :date_selected, class: 'form-control cell-group-hide',id: 'member-date',:required => true%>
+								<%= @patient.date_selected.strftime("%d/%m/%y") %>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<label for="subject" class="col-lg-3 col-md-3 control-label">Phone:</label>
 						<div class="col-lg-9 col-md-7">
-							<%= f.text_field :phone, class: 'form-control required',placeholder: "Ex: 8976543456",:required => true,type: "number" %>
+							<%= @patient.phone %>
 						</div>
 					</div>
 				</div>
@@ -106,15 +93,8 @@
 
 				</div>
 				<div class="popular-question row">
-					<%= f.text_area :priscription, class: 'tinymce form-control', :id => "massemail-text", :rows => 15, :cols => 120 %>
-					<%= tinymce %>
+					<div style="margin-left: 19px;"><%= @patient.priscription.html_safe %></div>
 				</div>
-				<div class="form-group">
-                    <div class="col-lg-offset-2">
-                        <%= f.submit "Save >>",class: 'btn btn-primary ml15 SubmitButton' %>
-                    </div>
-                </div>
-				<% end %>
 				<div class="answer">
 					<div class="page-header">
 
